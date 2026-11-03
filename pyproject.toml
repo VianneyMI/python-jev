@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python-jev"
+dynamic = ["version"]
+description = "Unofficial typed Python SDK for TypeSafe's Jev decision model: TypeSafe's primitives as Pydantic classes with typed answers."
+readme = "README.md"
+authors = [{ name = "Vianney Mixtur", email = "vianney@consio.ai" }]
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+keywords = ["typesafe", "jev", "system one", "classification", "pydantic", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
+dependencies = [
+    "httpx2>=2.16",
+    "pydantic>=2.10",
+    "typing-extensions>=4.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/VianneyMI/python-jev"
+Repository = "https://github.com/VianneyMI/python-jev"
+Issues = "https://github.com/VianneyMI/python-jev/issues"
+"TypeSafe documentation" = "https://docs.typesafe.ai"
+
+[dependency-groups]
+dev = [
+    "anyio>=4.4",
+    "mypy>=1.13",
+    "pyright>=1.1.400",
+    "pytest>=8.3",
+    "python-dotenv>=1.0",
+    "ruff>=0.8",
+]
+
+[tool.hatch.version]
+path = "src/jev/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jev"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/LICENSE", "/README.md", "/pyproject.toml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["scripts/explore_jev.py"]  # local scratch file, not part of the package
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "D"]
+ignore = [
+    "D100", "D104", "D105", "D107",  # module, package, magic and __init__ docstrings are optional
+    "D203", "D213",                  # use D211 and D212 (Google style)
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+"scripts/**" = ["D"]
+"examples/**" = ["D"]
+
+[tool.pyright]
+include = ["src", "tests", "scripts", "examples"]
+exclude = ["scripts/explore_jev.py", "**/.venv", "**/__pycache__"]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+markers = ["live: calls the real TypeSafe API (needs TYPESAFE_API_KEY)"]
+addopts = "-m 'not live' --doctest-modules"

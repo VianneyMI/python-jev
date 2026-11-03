@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables
+.env
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+
+# Local agent notes and skills
+.cursor/brainstorms/
+.cursor/plans/
+.claude/skills/

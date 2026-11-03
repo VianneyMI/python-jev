@@ -1,0 +1,61 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a383661e78618f63457123a4f50f"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "subject": "Duplicate charge",
+      "message": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+      "customer": {
+        "plan": "pro",
+        "tenure_months": 14
+      }
+    },
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer ask for money back?"
+      },
+      "urgency": {
+        "type": "score",
+        "instructions": "How urgent is this ticket?",
+        "criteria": [
+          "Can wait.",
+          "Needs attention this week.",
+          "Needs attention today."
+        ]
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "refund": {
+        "type": "noul",
+        "noul": 0.99
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.67,
+        "confidence": 0.5,
+        "legend": {
+          "0": "Can wait.",
+          "1": "Needs attention this week.",
+          "2": "Needs attention today."
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.33,
+          "2": 0.67
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 396,
+      "output_tokens": 34
+    }
+  }
+}

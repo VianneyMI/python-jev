@@ -1,0 +1,52 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a38364dd7f9f87b4a1dbebe6ccc9"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "frustration": {
+        "type": "score",
+        "instructions": "How frustrated is the customer?",
+        "criteria": [
+          "Not frustrated at all.",
+          "Slightly annoyed.",
+          "Clearly frustrated.",
+          "Very frustrated.",
+          "Furious, threatening to leave."
+        ]
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "frustration": {
+        "type": "score",
+        "score": 1.8,
+        "confidence": 0.82,
+        "legend": {
+          "0": "Not frustrated at all.",
+          "1": "Slightly annoyed.",
+          "2": "Clearly frustrated.",
+          "3": "Very frustrated.",
+          "4": "Furious, threatening to leave."
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.2,
+          "2": 0.79,
+          "3": 0.01,
+          "4": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 363,
+      "output_tokens": 19
+    }
+  }
+}

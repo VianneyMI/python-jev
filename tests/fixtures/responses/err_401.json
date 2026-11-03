@@ -1,0 +1,23 @@
+{
+  "status": 401,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a3836a4b70879426bd2fda6fc697"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer ask for money back?"
+      }
+    }
+  },
+  "response": {
+    "detail": {
+      "error_type": "authentication_error",
+      "message": "Cannot authenticate with the server. Please check your API key and try again."
+    }
+  }
+}

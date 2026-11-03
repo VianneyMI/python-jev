@@ -1,0 +1,134 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a383658074b286d2aff56ee10dd8"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer ask for money back?"
+      },
+      "repeat_contact": {
+        "type": "noul",
+        "instructions": "Has the customer contacted support before about this?",
+        "criteria": {
+          "true": "Mentions a prior attempt, ticket, or that they have written before",
+          "false": "No sign of any previous contact"
+        }
+      },
+      "department": {
+        "type": "choice",
+        "instructions": "Which team should handle this ticket?",
+        "criteria": {
+          "billing": "Charges, refunds, invoices.",
+          "technical": "Bugs, outages, integrations.",
+          "other": null
+        }
+      },
+      "sentiment": {
+        "type": "choice",
+        "instructions": "What is the tone of this message?",
+        "criteria": {
+          "positive": null,
+          "neutral": null,
+          "negative": null
+        }
+      },
+      "urgency": {
+        "type": "score",
+        "instructions": "How urgent is this ticket?",
+        "criteria": [
+          "Can wait.",
+          "Needs attention this week.",
+          "Needs attention today."
+        ]
+      },
+      "frustration": {
+        "type": "score",
+        "instructions": "How frustrated is the customer?",
+        "criteria": [
+          "Not frustrated at all.",
+          "Slightly annoyed.",
+          "Clearly frustrated.",
+          "Very frustrated.",
+          "Furious, threatening to leave."
+        ]
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "refund": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "repeat_contact": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "department": {
+        "type": "choice",
+        "choice": "billing",
+        "confidence": 1.0,
+        "probabilities": {
+          "billing": 1.0,
+          "technical": 0.0,
+          "other": 0.0
+        }
+      },
+      "sentiment": {
+        "type": "choice",
+        "choice": "negative",
+        "confidence": 0.94,
+        "probabilities": {
+          "positive": 0.0,
+          "neutral": 0.04,
+          "negative": 0.96
+        }
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.47,
+        "confidence": 0.3,
+        "legend": {
+          "0": "Can wait.",
+          "1": "Needs attention this week.",
+          "2": "Needs attention today."
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.53,
+          "2": 0.47
+        }
+      },
+      "frustration": {
+        "type": "score",
+        "score": 1.77,
+        "confidence": 0.8,
+        "legend": {
+          "0": "Not frustrated at all.",
+          "1": "Slightly annoyed.",
+          "2": "Clearly frustrated.",
+          "3": "Very frustrated.",
+          "4": "Furious, threatening to leave."
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.24,
+          "2": 0.76,
+          "3": 0.0,
+          "4": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 582,
+      "output_tokens": 137
+    }
+  }
+}

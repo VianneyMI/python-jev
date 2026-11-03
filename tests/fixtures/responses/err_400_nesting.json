@@ -1,0 +1,163 @@
+{
+  "status": 400,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a3836bed7e5682fe076b15084aa2"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "next": {
+        "next": {
+          "next": {
+            "next": {
+              "next": {
+                "next": {
+                  "next": {
+                    "next": {
+                      "next": {
+                        "next": {
+                          "next": {
+                            "next": {
+                              "next": {
+                                "next": {
+                                  "next": {
+                                    "next": {
+                                      "next": {
+                                        "next": {
+                                          "next": {
+                                            "next": {
+                                              "next": {
+                                                "next": {
+                                                  "next": {
+                                                    "next": {
+                                                      "next": {
+                                                        "next": {
+                                                          "next": {
+                                                            "next": {
+                                                              "next": {
+                                                                "next": {
+                                                                  "next": {
+                                                                    "next": {
+                                                                      "next": {
+                                                                        "next": {
+                                                                          "next": {
+                                                                            "next": {
+                                                                              "next": {
+                                                                                "next": {
+                                                                                  "next": {
+                                                                                    "next": {
+                                                                                      "next": {
+                                                                                        "next": {
+                                                                                          "next": {
+                                                                                            "next": {
+                                                                                              "next": {
+                                                                                                "next": {
+                                                                                                  "next": {
+                                                                                                    "next": {
+                                                                                                      "next": {
+                                                                                                        "next": {
+                                                                                                          "next": {
+                                                                                                            "next": {
+                                                                                                              "next": {
+                                                                                                                "next": {
+                                                                                                                  "next": {
+                                                                                                                    "next": {
+                                                                                                                      "next": {
+                                                                                                                        "next": {
+                                                                                                                          "next": {
+                                                                                                                            "next": {
+                                                                                                                              "next": {
+                                                                                                                                "next": {
+                                                                                                                                  "next": {
+                                                                                                                                    "next": {
+                                                                                                                                      "next": {
+                                                                                                                                        "next": {
+                                                                                                                                          "next": {
+                                                                                                                                            "next": {
+                                                                                                                                              "next": {
+                                                                                                                                                "next": "leaf"
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer ask for money back?"
+      }
+    }
+  },
+  "response": {
+    "detail": {
+      "error_type": "api_usage_error",
+      "message": "Request JSON nesting exceeds the maximum depth of 64."
+    }
+  }
+}

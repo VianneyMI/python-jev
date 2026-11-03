@@ -1,0 +1,59 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a38368e97cfea136d2accc9556d5"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "ticket": {
+        "subject": "Duplicate charge",
+        "messages": [
+          {
+            "from": "customer",
+            "text": "I was charged twice for October."
+          },
+          {
+            "from": "agent",
+            "text": "Sorry about that, we are looking into it."
+          },
+          {
+            "from": "customer",
+            "text": "It has been a week. Refund me now or I cancel."
+          }
+        ]
+      },
+      "policy": {
+        "refund_window_days": 30,
+        "auto_refund_duplicates": true
+      }
+    },
+    "questions": {
+      "eligible": {
+        "type": "noul",
+        "instructions": {
+          "question": "Is this refund request eligible under the policy?",
+          "policy_field": "policy",
+          "consider": [
+            "refund_window_days",
+            "auto_refund_duplicates"
+          ]
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "eligible": {
+        "type": "noul",
+        "noul": 0.92
+      }
+    },
+    "usage": {
+      "input_tokens": 435,
+      "output_tokens": 20
+    }
+  }
+}

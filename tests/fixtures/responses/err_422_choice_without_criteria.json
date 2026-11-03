@@ -1,0 +1,33 @@
+{
+  "status": 422,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a3836add7c1d890c872c02b6f3d9"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "department": {
+        "type": "choice",
+        "instructions": "Which team?"
+      }
+    }
+  },
+  "response": {
+    "detail": [
+      {
+        "type": "missing",
+        "loc": [
+          "body",
+          "questions",
+          "department",
+          "choice",
+          "criteria"
+        ],
+        "msg": "Field required",
+        "input": "{\"type\":\"choice\",\"instructions\":\"Which team?\"}"
+      }
+    ]
+  }
+}

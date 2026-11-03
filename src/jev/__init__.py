@@ -9,6 +9,7 @@ This package is not affiliated with or endorsed by TypeSafe. See https://docs.ty
 TypeSafe's documentation.
 """
 
+from jev._client import AsyncJev, Jev
 from jev._content import Content
 from jev._version import __version__
 from jev.errors import (
@@ -29,17 +30,21 @@ from jev.errors import (
     UnsupportedMediaTypeError,
 )
 from jev.labels import Levels, NoulCriteria, Options
-from jev.primitives import Choice, Noul, Primitive, Score
+from jev.primitives import Answer, Choice, Noul, Primitive, Question, Score
+from jev.result import Result, Usage
 
 __all__ = [
     "APIConnectionError",
     "APIError",
     "APITimeoutError",
+    "Answer",
+    "AsyncJev",
     "AuthenticationError",
     "BadRequestError",
     "Choice",
     "Content",
     "ContextLengthExceededError",
+    "Jev",
     "JevConfigurationError",
     "JevError",
     "Levels",
@@ -49,11 +54,14 @@ __all__ = [
     "OverloadedError",
     "PayloadTooLargeError",
     "Primitive",
+    "Question",
     "QuestionDefinitionError",
     "RateLimitError",
+    "Result",
     "Score",
     "UnexpectedAnswerError",
     "UnprocessableEntityError",
     "UnsupportedMediaTypeError",
+    "Usage",
     "__version__",
 ]

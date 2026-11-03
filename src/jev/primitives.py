@@ -28,9 +28,9 @@ from __future__ import annotations
 import copy
 import functools
 import inspect
-from typing import Any, ClassVar, Generic, Literal, cast, get_args, get_origin
+from typing import Annotated, Any, ClassVar, Generic, Literal, TypeAlias, cast, get_args, get_origin
 
-from pydantic import BaseModel, ConfigDict, JsonValue
+from pydantic import BaseModel, ConfigDict, Field, JsonValue
 from typing_extensions import TypeVar
 
 from jev._content import Content, to_wire
@@ -163,6 +163,12 @@ class Score(Primitive, Generic[V]):
     """Probability of each level, keyed by level; values sum to approximately 1."""
 
 
+Question: TypeAlias = type[Primitive]
+"""A question: a subclass of [`Noul`][jev.Noul], [`Choice`][jev.Choice] or [`Score`][jev.Score]."""
+
+Answer: TypeAlias = Annotated[Noul | Choice[Any] | Score[Any], Field(discriminator="type")]
+"""An answer to a question given in a mapping: an instance of that question class."""
+
 _BASES: frozenset[type[Primitive]] = frozenset({Primitive, Noul, Choice, Score})
 
 
@@ -289,4 +295,4 @@ def _question(cls: type[Primitive]) -> tuple[tuple[str, JsonValue], ...]:
     return tuple(question.items())
 
 
-__all__ = ["Choice", "Noul", "Primitive", "Score"]
+__all__ = ["Answer", "Choice", "Noul", "Primitive", "Question", "Score"]

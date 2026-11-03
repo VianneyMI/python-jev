@@ -83,7 +83,8 @@ typeCheckingMode = "strict"
 [tool.mypy]
 python_version = "3.11"
 strict = true
-files = ["src"]
+disable_error_code = ["redundant-cast"]  # pyright (the reference checker) needs casts that mypy finds redundant
+files = ["src", "tests/typing"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "src"]

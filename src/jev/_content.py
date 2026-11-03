@@ -3,15 +3,18 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
-from typing import Any, TypeAlias, cast
+from typing import Any, TypeAlias, Union, cast
 
 from pydantic import BaseModel, JsonValue
 
-Content: TypeAlias = str | BaseModel | Sequence[BaseModel] | JsonValue
-"""Text, a Pydantic object, a list of Pydantic objects, or any JSON value.
+Content: TypeAlias = Union[  # noqa: UP007  (a runtime value on 3.11 with forward references)
+    str, int, float, bool, BaseModel, Sequence["Content"], Mapping[str, "Content"], None
+]
+"""Text, a Pydantic object, or JSON-like data that may contain Pydantic objects.
 
 TypeSafe accepts a string, a JSON object or a JSON array for `state`, `instructions` and
-criteria descriptions. Pydantic objects are sent as JSON objects, using field aliases.
+criteria descriptions. Pydantic objects are sent as JSON objects, using field aliases, also when
+nested in lists and dicts: `{"ticket": ticket_model, "policy": {"refund_days": 30}}` works.
 """
 
 

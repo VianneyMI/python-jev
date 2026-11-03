@@ -1,0 +1,41 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a38362c07ccda66f269ffb515dfc"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "department": {
+        "type": "choice",
+        "instructions": "Which team should handle this ticket?",
+        "criteria": {
+          "billing": "Charges, refunds, invoices.",
+          "technical": "Bugs, outages, integrations.",
+          "other": null
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "department": {
+        "type": "choice",
+        "choice": "billing",
+        "confidence": 1.0,
+        "probabilities": {
+          "billing": 1.0,
+          "technical": 0.0,
+          "other": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 364,
+      "output_tokens": 38
+    }
+  }
+}

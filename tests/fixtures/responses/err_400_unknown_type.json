@@ -1,0 +1,23 @@
+{
+  "status": 400,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a3836b66736a9e886dbac3e9dded"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "amount": {
+        "type": "number",
+        "instructions": "How much?"
+      }
+    }
+  },
+  "response": {
+    "detail": {
+      "error_type": "api_usage_error",
+      "message": "Invalid request."
+    }
+  }
+}

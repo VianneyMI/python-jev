@@ -1,0 +1,30 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a383614a749d89191d128b6ef256"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": "Hi, I was charged twice for my October invoice (INV-2291). Please refund the duplicate charge as soon as possible, this is the second time I write.",
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer ask for money back?"
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "refund": {
+        "type": "noul",
+        "noul": 0.98
+      }
+    },
+    "usage": {
+      "input_tokens": 310,
+      "output_tokens": 20
+    }
+  }
+}

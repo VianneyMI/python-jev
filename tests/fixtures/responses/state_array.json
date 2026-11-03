@@ -1,0 +1,57 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a38366cc7cdd8acf5385b2eb20a5"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": [
+      "Hi, my card was charged twice for October.",
+      "I already wrote last week and nobody answered.",
+      "Please refund the duplicate charge."
+    ],
+    "questions": {
+      "repeat_contact": {
+        "type": "noul",
+        "instructions": "Has the customer contacted support before about this?",
+        "criteria": {
+          "true": "Mentions a prior attempt, ticket, or that they have written before",
+          "false": "No sign of any previous contact"
+        }
+      },
+      "sentiment": {
+        "type": "choice",
+        "instructions": "What is the tone of this message?",
+        "criteria": {
+          "positive": null,
+          "neutral": null,
+          "negative": null
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "repeat_contact": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "sentiment": {
+        "type": "choice",
+        "choice": "negative",
+        "confidence": 0.98,
+        "probabilities": {
+          "positive": 0.0,
+          "neutral": 0.01,
+          "negative": 0.99
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 381,
+      "output_tokens": 56
+    }
+  }
+}

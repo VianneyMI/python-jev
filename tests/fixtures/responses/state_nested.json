@@ -1,0 +1,82 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-typesafe-request-id": "req_01a1a38367a07faab3212572653926c6"
+  },
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "ticket": {
+        "subject": "Duplicate charge",
+        "messages": [
+          {
+            "from": "customer",
+            "text": "I was charged twice for October."
+          },
+          {
+            "from": "agent",
+            "text": "Sorry about that, we are looking into it."
+          },
+          {
+            "from": "customer",
+            "text": "It has been a week. Refund me now or I cancel."
+          }
+        ]
+      },
+      "policy": {
+        "refund_window_days": 30,
+        "auto_refund_duplicates": true
+      }
+    },
+    "questions": {
+      "churn_risk": {
+        "type": "noul",
+        "instructions": "Does the last customer message in `ticket.messages` threaten to cancel?"
+      },
+      "frustration": {
+        "type": "score",
+        "instructions": "How frustrated is the customer?",
+        "criteria": [
+          "Not frustrated at all.",
+          "Slightly annoyed.",
+          "Clearly frustrated.",
+          "Very frustrated.",
+          "Furious, threatening to leave."
+        ]
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.14.0",
+    "answers": {
+      "churn_risk": {
+        "type": "noul",
+        "noul": 0.99
+      },
+      "frustration": {
+        "type": "score",
+        "score": 3.96,
+        "confidence": 0.97,
+        "legend": {
+          "0": "Not frustrated at all.",
+          "1": "Slightly annoyed.",
+          "2": "Clearly frustrated.",
+          "3": "Very frustrated.",
+          "4": "Furious, threatening to leave."
+        },
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.04,
+          "4": 0.96
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 474,
+      "output_tokens": 38
+    }
+  }
+}

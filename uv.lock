@@ -612,7 +612,7 @@ dev = [
 requires-dist = [
     { name = "httpx2", specifier = ">=2.16" },
     { name = "pydantic", specifier = ">=2.10" },
-    { name = "typing-extensions", specifier = ">=4.12" },
+    { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 
 [package.metadata.requires-dev]

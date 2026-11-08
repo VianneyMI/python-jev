@@ -4,9 +4,9 @@ Unofficial typed Python SDK for [TypeSafe](https://typesafe.ai)'s **Jev**, a Sys
 fast decisions and classification. You declare questions as Python classes. Jev answers all of
 them in one call. You get answers typed with your own labels and levels.
 
-> This package is not affiliated with or endorsed by TypeSafe. TypeSafe's documentation lives at
-> [docs.typesafe.ai](https://docs.typesafe.ai). Parts of it are quoted in this README and in the
-> docstrings.
+## Demo
+
+Below a quick glance of what this package is about and what you can do with it.
 
 ```python
 from pydantic import BaseModel
@@ -44,13 +44,13 @@ class Triage(BaseModel):
 
 
 with jev.Jev() as client:  # reads TYPESAFE_API_KEY
-    res = client.evaluate("I was charged twice for October, please refund me.", Triage)
+    response = client.evaluate("I was charged twice for October, please refund me.", Triage)
 
-res.answers.department.choice  # Department.BILLING
+response.answers.department.choice  # Department.BILLING
 res.answers.department.probabilities  # {Department.BILLING: 1.0, Department.TECHNICAL: 0.0, ...}
-res.answers.urgency.score  # 1.47, the expected level (between two levels)
+res.answers.urgency.score  # 1.47, the expected level (lies between two levels)
 res.answers.urgency.probabilities  # {Urgency.CAN_WAIT: 0.0, Urgency.THIS_WEEK: 0.53, ...}
-res.answers.refund.noul  # 0.98, the probability of yes
+res.answers.refund.noul  # 0.98, probability of positive answer
 ```
 
 ## Install
@@ -59,18 +59,15 @@ res.answers.refund.noul  # 0.98, the probability of yes
 pip install python-jev      # or: uv add python-jev
 ```
 
-The import name is `jev`. Python 3.11 or later. Get an API key from
+NOTE: The import name is `jev`. Python 3.11 or later. Get an API key from
 [console.typesafe.ai](https://console.typesafe.ai) and set `TYPESAFE_API_KEY`, or pass
 `Jev(api_key=...)`.
 
-> An unrelated package named `jev` exists on PyPI and also installs a top-level `jev` module.
-> Don't install both in the same environment.
 
-## Primitives: the class is the question, its instances are the answers
+## How this package model TypeSafeAI new AI primitives ?
 
 TypeSafe answers three kinds of questions, its *primitives*. Each one is a base class here.
-Subclass it to declare a question. After a call, each instance of your class is an answer. This
-works like a Pydantic model, where the class is the schema and the instances are the data.
+Subclass it to declare a question. After a call, each instance of your class is an answer.
 
 | Primitive | Asks | You declare | The answer holds |
 | --- | --- | --- | --- |
